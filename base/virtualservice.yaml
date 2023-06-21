@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: homeassistant
+spec:
+  gateways:
+  - istio-system/gateway
+  hosts:
+  - 'homeassistant.n9oh.com'
+  http:
+  - route:
+    - destination:
+        host: homeassistant.homeassistant.svc.cluster.local
+        port:
+          number: 80
