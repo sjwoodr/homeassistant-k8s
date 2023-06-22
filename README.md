@@ -14,3 +14,12 @@ http:
 
 # setup
 This repo is meant to be used along with https://github.com/sjwoodr/argocd-config
+
+
+# docker-compose 
+The docker-compose directory contains the docker-compose.yaml for starting the real homeassistant outside of k8s
+
+# fwd-svc
+The fwd-svc directory contains the manifests for running the nginx reverse proxy to access homeassistant on the host port. (Started via docker-compose)
+
+You'll need to edit the Dockerfile to change the IP address of the host that runs homeassistant

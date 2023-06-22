@@ -15,23 +15,15 @@ spec:
         app: homeassistant
     spec:
       containers:
-        - image: ghcr.io/home-assistant/home-assistant:stable
+        - image: sjwoodr/homeassistant-k8s-proxy:latest
           imagePullPolicy: Always
           name: homeassistant
           env:
             - name: TZ
               value: "America/New_York"
-          securityContext:
-            privileged: true
           ports:
-            - containerPort: 8123
+            - containerPort: 80
               protocol: TCP
-          volumeMounts:
-            - name: config
-              mountPath: '/config'
-            - name: localtime
-              mountPath: '/etc/localtime'
-              readOnly: true
           resources:
             requests:
               memory: 128Mi
@@ -40,10 +32,3 @@ spec:
               memory: 2Gi
               cpu: 1
       restartPolicy: Always
-      volumes:
-        - name: config
-          hostPath:
-            path: /home/steve/homeassistant/config
-        - name: localtime
-          hostPath:
-            path: /etc/localtime

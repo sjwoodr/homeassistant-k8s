@@ -6,12 +6,11 @@ metadata:
   name: homeassistant
   namespace: homeassistant
 spec:
+  clusterIP: None
   ports:
-  - name: http
+  - name: homeassistant
     port: 80
-    appProtocol: HTTP
     protocol: TCP
-    targetPort: 8123
+    targetPort: 80
   selector:
     app: homeassistant
-  type: LoadBalancer
