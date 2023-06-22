@@ -6,7 +6,6 @@ resources:
   - service.yaml
   - virtualservice.yaml
   - deployment.yaml
-    #- ingress.yaml
 
 # we'll only set the namespace to development if its not already being set
 transformers:
